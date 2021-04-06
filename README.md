@@ -3,7 +3,7 @@
 ## Examples
 ### Loops using goto + stack
 ```js
-const s = stateable()
+const s = useContinuation()
 var {setGoto, setStop, state, push} = s.next([false, false]).value
 
 push("state.a = 3")
