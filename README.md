@@ -12,10 +12,12 @@ s.next([true, false])
 push("state.a += .5")
 
 s.next([true, false])
-setGoto(2)
+setGoto(1)
 
 s.next([true, false])
-setGoto(2)
+setGoto(1)
 
 const result = s.next([true, true]).value
+
+result.a // 4.5
 ```
