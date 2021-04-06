@@ -1,4 +1,4 @@
-function* stateable() {
+function* useContinuation() {
     const stack = []
     let goto = 0
     let stop = stack.length
@@ -27,7 +27,7 @@ function* stateable() {
 
 /*
 
-const s = stateable()
+const s = useContinuation()
 var {setGoto, setStop, state, push} = s.next([false, false]).value
 
 push("state.a = 3")
