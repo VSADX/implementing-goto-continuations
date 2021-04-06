@@ -4,7 +4,7 @@
 ### Loops using goto + stack
 ```js
 const s = useContinuation()
-var {setGoto, setStop, state, push} = s.next([false, false]).value
+const {setGoto, setStop, state, push} = s.next([false, false]).value
 
 push("state.a = 3")
 
