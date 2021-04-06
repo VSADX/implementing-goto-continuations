@@ -1,7 +1,7 @@
 # Implementing goto continuations
 
 ## Examples
-### Loops using goto + stack
+### Loops using goto + stack + `function*`
 ```js
 const s = useContinuation()
 const {setGoto, setStop, state, push} = s.next([false, false]).value
