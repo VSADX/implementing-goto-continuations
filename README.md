@@ -7,6 +7,7 @@ Three kinds of `goto`
 ## Examples
 
 ### 1. Using line number `goto` 
+`./2-goto-via-command-stack.js`
 ```js
 const s = useContinuation()
 const {setGoto, setStop, state, push} = s.next([false, false]).value
@@ -28,7 +29,30 @@ console.log(state.a) // 4.5
 ```
   
 ### 2. Different function `goto`
-To be added.
+`5-goto-via-pointers.js`
+```js
+function divide() {
+        c += 10
+        d = (d * .25) + c
+        x /= c + d 
+}
+
+function add() {
+    x += y + a + b
+}
+
+function calculatePoints(...points) {
+    let [x, y] = points
+    let { a, b } = {a: 12, b: 13}
+
+    if(x >= 200) goto (add)
+    if(b >= 200) goto (divide)
+
+    goto (add)
+
+    throw fn => eval(fn)
+}
+```
   
 ### 3. Paused function `goto`
 To be added.
