@@ -32,9 +32,9 @@ console.log(state.a) // 4.5
 `5-goto-via-pointers.js`
 ```js
 function divide() {
-        c += 10
-        d = (d * .25) + c
-        x /= c + d 
+    c += 10
+    d = (d * .25) + c
+    x /= c + d 
 }
 
 function add() {
