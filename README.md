@@ -29,7 +29,7 @@ console.log(state.a) // 4.5
 ```
   
 ### 2. Different function `goto`
-`5-goto-via-pointers.js`
+`6-goto-via-jit-pointers.js`
 ```js
 function divide() {
     c += 10
@@ -42,15 +42,16 @@ function add() {
 }
 
 function calculatePoints(...points) {
+    goto = fn => eval(fn)
+
     let [x, y] = points
     let { a, b } = {a: 12, b: 13}
 
     if(x >= 200) goto (add)
     if(b >= 200) goto (divide)
-
     goto (add)
 
-    throw fn => eval(fn)
+    return a + b + x + y
 }
 ```
   
