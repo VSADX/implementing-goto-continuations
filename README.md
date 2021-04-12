@@ -65,6 +65,7 @@ function A() {
 function B() {
   let b = 3
   [[Suspend]]
+  return b
 }
 ```
 ```js
