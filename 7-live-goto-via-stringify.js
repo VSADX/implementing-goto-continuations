@@ -1,12 +1,11 @@
-function jump(fn, fnf) {
-  return function(handler) {
-    const source = handler.toString();
-    let secondSource = fnf.toString().replace('[[Suspend]]', `(${handler.toString()})()`);
-    let firstSource = fn.toString().replace('[[Suspend]]', `(${secondSource})()`);
-    firstSource = `(${firstSource})()`
-    console.log(firstSource)
-    return eval(firstSource);
-  }
+// of @/Simon_
+function jump(...functions) {
+  functions = functions.reverse();
+  return function (handler) {
+    let source = functions.shift().toString().replace('[[Suspend]]', `(${handler.toString()})()`);
+    source = functions.reduce((src, fn) => fn.toString().replace('[[Suspend]]', `(${src})()`), source);
+    return eval(`(${source})()`);
+  };
 }
 /*
 jump(A, B)(() => {  
