@@ -37,7 +37,7 @@ function toContext(gen_fn = () => {}, previous = [0,0]) {
                 this.inner.previous[0].map((name, i) => 
                     this.inner.previous[1][i] = this.context(`(${name})`))
                 
-                this.inner = loadRepository(error("arguments.callee"), this.inner.previous).inner
+                this.inner = toContext(error("arguments.callee"), this.inner.previous).inner
             }
         }
 
