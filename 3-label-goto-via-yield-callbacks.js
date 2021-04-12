@@ -1,3 +1,4 @@
+// of @/Simon_
 function useGoto(fn) {
     if(!new.target) return new useGoto(fn)
     this.stack = []
