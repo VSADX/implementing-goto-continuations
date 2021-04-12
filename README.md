@@ -2,7 +2,7 @@
 Three kinds of `goto`
 1. goto a line or label inside a function.
 2. goto a different function (then execute it internally).
-3. goto a paused function (then execute against it internally).
+3. goto a live function (then execute against it internally).
   
 ## Examples
 
@@ -55,6 +55,22 @@ function calculatePoints(...points) {
 }
 ```
   
-### 3. Paused function `goto`
-To be added.
-  
+### 3. Live function `goto` / `jump`
+```js
+function A() {
+  let a = 4
+  [[Suspend]]
+  return a
+}
+function B() {
+  let b = 3
+  [[Suspend]]
+}
+```
+```js
+jump(A, B)(() => {  
+  a *= 32
+  b /= 12
+  console.log(a, b)
+})
+```
