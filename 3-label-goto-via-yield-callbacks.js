@@ -29,8 +29,8 @@ function* calc(goto) {
   yield add => this.value += 10 // this line runs 1 time
   yield sub => this.value -= .5 // this line runs 3 times
   
-  goto`sub`
-  goto`sub`
+  goto `sub`
+  goto `sub`
 
   console.log("final value", this.value) // 8.5
   return this.value
