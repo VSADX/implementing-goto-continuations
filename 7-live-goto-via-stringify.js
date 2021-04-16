@@ -1,9 +1,10 @@
 // of @/Simon_
 function jump(...functions) {
+  const keyword = '[[goto]]'
   functions = functions.reverse();
   return function (handler) {
-    let source = functions.shift().toString().replace('[[Suspend]]', `(${handler.toString()})()`);
-    source = functions.reduce((src, fn) => fn.toString().replace('[[Suspend]]', `(${src})()`), source);
+    let source = functions.shift().toString().replace(keyword, `(${handler.toString()})()`);
+    source = functions.reduce((src, fn) => fn.toString().replace(keyword, `(${src})()`), source);
     return eval(`(${source})()`);
   };
 }
@@ -17,12 +18,12 @@ jump(A, B)(() => {
 /*
 function A() {
   let a = 4;
-  [[Suspend]];
+  [[goto]];
   return a;
 }
 function B() {
   let b = 3;
-  [[Suspend]];
+  [[goto]];
   return b;
 }
 */
