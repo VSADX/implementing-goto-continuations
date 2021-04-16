@@ -59,12 +59,12 @@ function calculatePoints(...points) {
 ```js
 function A() {
   let a = 4
-  [[Suspend]]
+  [[goto]]
   return a
 }
 function B() {
   let b = 3
-  [[Suspend]]
+  [[goto]]
   return b
 }
 ```
