@@ -34,7 +34,8 @@ function calculatePoints(...points) {
 }
 ```
   
-### 3. Live function `goto` / `jump`
+### 3. Live function `goto` / `jump`  
+`7-live-goto-via-stringify.js`  
 ```js
 function Food() {
   let meal = "burger"
