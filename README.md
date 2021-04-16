@@ -5,28 +5,6 @@ Three kinds of `goto`
 3. goto a live function (then execute against it internally).
   
 ## Examples
-
-### 1. Using line number `goto` 
-`./2-goto-via-command-stack.js`
-```js
-const s = useContinuation()
-const {setGoto, setStop, state, push} = s.next([false, false]).value
-
-push("state.a = 3")
-
-s.next([true, false]) // a = 3
-push("state.a += .5")
-
-s.next([true, false]) // a = 3.5
-setGoto(1)
-
-s.next([true, false]) // a = 4
-setGoto(1)
-
-s.next([true, true]) // a = 4.5
-
-console.log(state.a) // 4.5
-```
   
 ### 2. Different function `goto`
 `6-goto-via-jit-pointers.js`
@@ -57,21 +35,42 @@ function calculatePoints(...points) {
   
 ### 3. Live function `goto` / `jump`
 ```js
-function A() {
-  let a = 4
+function Food() {
+  let meal = "burger"
   [[goto]]
-  return a
+  return meal
 }
-function B() {
-  let b = 3
+function Drink() {
+  let beverage = "soda"
   [[goto]]
-  return b
+  return beverage 
 }
 ```
 ```js
-jump(A, B)(() => {  
-  a *= 32
-  b /= 12
-  console.log(a, b)
+jump(Food, Drink)(() => {  
+  let lunch = `You ordered a ${meal} / ${beverage} combo!`
+  console.log(lunch)
 })
+```
+  
+### 1. Using line number `goto` 
+`./2-goto-via-command-stack.js`
+```js
+const s = useContinuation()
+const {setGoto, setStop, state, push} = s.next([false, false]).value
+
+push("state.a = 3")
+
+s.next([true, false]) // a = 3
+push("state.a += .5")
+
+s.next([true, false]) // a = 3.5
+setGoto(1)
+
+s.next([true, false]) // a = 4
+setGoto(1)
+
+s.next([true, true]) // a = 4.5
+
+console.log(state.a) // 4.5
 ```
