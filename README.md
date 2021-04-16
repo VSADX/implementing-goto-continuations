@@ -18,7 +18,8 @@ function divide() {
 function add() {
     x += y + a + b
 }
-
+```
+```js
 function calculatePoints(...points) {
     goto = fn => eval(fn)
 
