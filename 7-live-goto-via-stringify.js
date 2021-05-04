@@ -1,6 +1,6 @@
 // of @/Simon_
 function jump(...functions) {
-  const keyword = '[[goto]]'
+  const keyword = '[[Suspend]]'
   functions = functions.reverse();
   return function (handler) {
     let source = functions.shift().toString().replace(keyword, `(${handler.toString()})()`);
@@ -18,12 +18,12 @@ jump(A, B)(() => {
 /*
 function A() {
   let a = 4;
-  [[goto]];
+  [[Suspend]];
   return a;
 }
 function B() {
   let b = 3;
-  [[goto]];
+  [[Suspend]];
   return b;
 }
 */
